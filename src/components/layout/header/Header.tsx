@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoSrc from "@/assets/images/logo.svg";
+import logoSrc from "@/assets/logo.svg";
 
 const getInitials = (name: string) => {
   const names = name.split(" ");
@@ -38,6 +38,7 @@ export function Header() {
 
         <Link to="/">
           <img
+            id="LogoTT"
             src={logoSrc}
             alt="Logo da plataforma TireTrack"
             className="h-8 w-auto"

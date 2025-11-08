@@ -7,10 +7,12 @@ import { AppRoutes } from './routes'; // Importa o componente que gerencia todas
 function App() {
   return (
     // 1. O BrowserRouter "abraça" tudo para que a navegação por URL funcione
+    
+    
     <BrowserRouter>
 
       {/* 2. O AuthProvider "abraça" as rotas para que todas as telas
-          saibam qual usuário está logado */}
+          saibam qual usuário está logado */}   
       <AuthProvider>
 
         {/* 3. O AppRoutes é o componente que de fato renderiza a página
@@ -19,6 +21,7 @@ function App() {
         
       </AuthProvider>
     </BrowserRouter>
+    
   );
 }
 

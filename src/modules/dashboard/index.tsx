@@ -1,12 +1,9 @@
-import { Header } from "@/components/layout/header/Header";
-import SuperAdminDashboard from "@/modules/dashboard/components/SuperAdminDashboard";
+import { ClientAdminDashboard } from "./components/ClientAdminDashboard";
 
 const Dashboard = () => {
   return (
-    <div>
-      <Header />
-      Dashboard
-      <SuperAdminDashboard />
+    <div className="mx-8">
+      <ClientAdminDashboard />
     </div>
   );
 };

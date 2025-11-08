@@ -15,6 +15,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import { VeiculosPage } from '@/pages/VeiculosPage';
 import { PneusPage } from '@/pages/PneusPage';
 import { EstoquePage } from '@/pages/EstoquePage';
+import { RelatoriosPage } from '@/modules/reportsPage/relatorios/index';
 // Importe o VeiculosPage se precisar que ele esteja disponível
 // import { VeiculosPage } from '@/pages/VeiculosPage'; 
 
@@ -48,6 +49,8 @@ export function AppRoutes() {
 
           {/* ROTA Implementada para a página de pneus */}
           <Route path="/pneus" element={<PneusPage />} />
+
+          <Route path="/relatorios" element={<RelatoriosPage />} />
 
           {/* ROTAS DA GESTÃO DE EMPRESAS (Sua funcionalidade) */}
           <Route path="/empresas" element={<ClientCompanyPage />} /> 

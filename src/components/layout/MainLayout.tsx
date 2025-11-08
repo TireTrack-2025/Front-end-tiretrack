@@ -1,8 +1,6 @@
-// src/components/layout/MainLayout.tsx
-import React from 'react'; // Mantido para garantir que o JSX compile corretamente
 import { Outlet } from 'react-router-dom';
-import { Truck, Settings, LogOut, LayoutDashboard, ChevronDown, Archive, Cog } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext'; 
+import { Truck, Settings, LogOut, LayoutDashboard, ChevronDown, Archive, Cog, BarChart2 } from 'lucide-react'; 
+import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -71,7 +69,20 @@ const Sidebar = () => {
                     </Link>
                 )}
 
-                {/* 3. Gestão de Empresas (APENAS PROPRIETARIA) */}
+                {/* 3. MUDANÇA: ADICIONADO LINK DE RELATÓRIOS (APENAS CLIENTE) */}
+                    <Link to="/relatorios" className="flex items-center 
+                                                gap-3 p-3 
+                                                rounded-md 
+                                                font-semibold 
+                                                text-[#ADAD9E]
+                                                transition-colors duration-300 
+                                                hover:bg-[#1a374e]
+                                                hover:text-white">
+                        <BarChart2 className="size-4" />
+                        Relatórios
+                    </Link>
+
+                {/* 4. Gestão de Empresas (APENAS PROPRIETARIA) */}
                 {canManageEmpresas && (
                     <Link to="/empresas" className="flex items-center 
                                                 gap-3 p-3 
@@ -87,7 +98,7 @@ const Sidebar = () => {
                 )}
                 
             
-                {/* 4. Modelos de Pneus (APENAS CLIENTE) */}
+                {/* 5. Modelos de Pneus (APENAS CLIENTE) */}
                 {canViewFrotaLinks && (
                     <Link to="/pneus" className="flex items-center 
                                                 gap-3 p-3 
@@ -102,7 +113,7 @@ const Sidebar = () => {
                     </Link>
                 )}
 
-                {/* 5. Modelos de Veículos (APENAS CLIENTE) */}
+                {/* 6. Modelos de Veículos (APENAS CLIENTE) */}
                 {canViewFrotaLinks && (
                     <Link to="/veiculos" className="flex items-center 
                                                 gap-3 p-3 
@@ -118,13 +129,12 @@ const Sidebar = () => {
                 )}
             </div>
         </aside>
-  );
+    );
 };
 
 //Componente do Header (Barra Superior)
     const Header = () => {
-// ⬅️ CORREÇÃO 1: Obter a função 'logout' do contexto
-    const { user, logout } = useAuth(); 
+    const { user } = useAuth(); 
 
     const initials = user ? user.nome.split(' ').map(n => n[0]).join('') : 'UN';
     const userName = user?.nome || 'Usuário';
@@ -158,15 +168,14 @@ const Sidebar = () => {
                     </DropdownMenuItem>
                 <DropdownMenuSeparator />
 
- {/* ⬅️ CORREÇÃO 2: Ligar o onClick à função logout */}
-<DropdownMenuItem onClick={logout} className="cursor-pointer">
-<LogOut className="mr-2 h-4 w-4" />
- <span>Sair</span>
- </DropdownMenuItem>
-</DropdownMenuContent>
- </DropdownMenu>
- </header>
-);
+                <DropdownMenuItem className="cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sair</span>
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+            </DropdownMenu>
+        </header>
+    );
 };
 
 // --- Componente de Layout Principal ---
@@ -174,13 +183,13 @@ const Sidebar = () => {
     return (
     <div className="flex min-h-screen w-full bg-background">
         <Sidebar />
-    <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1">
             <Header />
-    <main className="flex-1 overflow-y-auto">
-    {/* O Outlet renderiza o conteúdo da página ativa (ex: ClientCompanyPage) */}
-            <Outlet />
-    </main>
-    </div>
+            <main className="flex-1 overflow-y-auto">
+            {/* O Outlet renderiza o conteúdo da página ativa (ex: ClientCompanyPage) */}
+                <Outlet />
+            </main>
+        </div>
     </div>
     );
 };

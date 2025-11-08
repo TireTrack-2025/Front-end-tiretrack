@@ -1,7 +1,7 @@
 // src/components/layout/MainLayout.tsx
 import React from 'react'; // Mantido para garantir que o JSX compile corretamente
 import { Outlet } from 'react-router-dom';
-import { Truck, Settings, LogOut, LayoutDashboard, ChevronDown} from 'lucide-react';
+import { Truck, Settings, LogOut, LayoutDashboard, ChevronDown, Archive, Cog } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext'; 
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -15,7 +15,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Link } from 'react-router-dom';
-import logoSrc from "@/assets/logo.svg";
+import logoSrc from "@/assets/TTLogo.png";
 
 
 //Componente da Sidebar (Navegação Esquerda)
@@ -34,32 +34,53 @@ const Sidebar = () => {
 
     return (
         <aside className="w-64 bg-sidebar text-sidebar-foreground flex flex-col border-r border-sidebar-border">
-            <div className="h-16 flex items-center p-4">
+            <div className="h-16 flex items-center p-4 ">
                 <img 
                     src={logoSrc} // 
                     alt="Logo TIRETRACK"
-                    className="h-10 w-auto"/>
+                    className="h-40 w-auto ml-5"/>
             </div>
 
             <div className="p-4 flex flex-col space-y-2 flex-grow">
                 
                 {/* 1. Dashboard (Comum a todos - Sempre visível) */}
-                <Link to="/dashboard" className="flex items-center gap-3 p-3 rounded-md hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors font-semibold">
+                <Link to="/dashboard" className="flex items-center 
+                                                gap-3 p-3 
+                                                rounded-md 
+                                                font-semibold 
+                                                text-[#ADAD9E] 
+                                                transition-colors duration-300 
+                                                hover:bg-[#1a374e]
+                                                hover:text-white">
                     <LayoutDashboard className="size-4" />
                     Dashboard
                 </Link>
     
                 {/* 2. Inventário Geral (Estoque) (APENAS CLIENTE) */}
                 {canViewFrotaLinks && (
-                    <Link to="/estoque" className="flex items-center gap-3 p-3 rounded-md hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors font-semibold">
-                        <Truck className="size-4" />
+                    <Link to="/estoque" className="flex items-center 
+                                                gap-3 p-3 
+                                                rounded-md 
+                                                font-semibold 
+                                                text-[#ADAD9E]
+                                                transition-colors duration-300 
+                                                hover:bg-[#1a374e]
+                                                hover:text-white">
+                        <Archive className="size-4" />
                         Inventário Geral
                     </Link>
                 )}
 
                 {/* 3. Gestão de Empresas (APENAS PROPRIETARIA) */}
                 {canManageEmpresas && (
-                    <Link to="/empresas" className="flex items-center gap-3 p-3 rounded-md bg-sidebar-accent text-sidebar-accent-foreground transition-colors font-semibold">
+                    <Link to="/empresas" className="flex items-center 
+                                                gap-3 p-3 
+                                                rounded-md 
+                                                font-semibold 
+                                                text-[#ADAD9E]
+                                                transition-colors duration-300 
+                                                hover:bg-[#1a374e]
+                                                hover:text-white">
                         <Truck className="size-4" />
                         Gestão de Empresas
                     </Link>
@@ -68,14 +89,30 @@ const Sidebar = () => {
             
                 {/* 4. Modelos de Pneus (APENAS CLIENTE) */}
                 {canViewFrotaLinks && (
-                    <Link to="/pneus" className="flex items-center gap-3 p-3 rounded-md hover:bg-sidebar-accent text-sidebar-accent-foreground transition-colors font-semibold">
+                    <Link to="/pneus" className="flex items-center 
+                                                gap-3 p-3 
+                                                rounded-md 
+                                                font-semibold 
+                                                text-[#ADAD9E]
+                                                transition-colors duration-300 
+                                                hover:bg-[#1a374e]
+                                                hover:text-white">
+                        <Cog className='size-4' />
                         Modelos de Pneus
                     </Link>
                 )}
 
                 {/* 5. Modelos de Veículos (APENAS CLIENTE) */}
                 {canViewFrotaLinks && (
-                    <Link to="/veiculos" className="flex items-center gap-3 p-3 rounded-md hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors font-semibold">
+                    <Link to="/veiculos" className="flex items-center 
+                                                gap-3 p-3 
+                                                rounded-md 
+                                                font-semibold 
+                                                text-[#ADAD9E]
+                                                transition-colors duration-300 
+                                                hover:bg-[#1a374e]
+                                                hover:text-white">
+                        <Truck className='size-4' />
                         Modelos de Veículos
                     </Link>
                 )}

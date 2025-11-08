@@ -28,12 +28,12 @@ export function Header() {
   const userInitials = getInitials(user.nome);
 
   return (
-    <header className="flex h-16 items-center justify-between border-b bg-[#F0F4F9] px-4 md:px-6">
+    <header className="flex h-16 items-center justify-between border-b px-4 md:px-6">
       {/* LADO ESQUERDO: Menu Hambúrguer e Logo */}
       <div className="flex items-center gap-4">
         {/* BOTÃO DO MENU HAMBÚRGUER (AGORA SEMPRE VISÍVEL) */}
         <Button variant="ghost" size="icon">
-          <Menu className="h-6 w-6" />
+          <Menu className="h-6 w-6"/>
         </Button>
 
         <Link to="/">

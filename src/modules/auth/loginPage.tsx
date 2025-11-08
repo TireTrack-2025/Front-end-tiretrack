@@ -9,7 +9,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+<<<<<<< HEAD
 import logoSrc from "@/assets/TTLogo.png";
+=======
+import logoSrc from "@/assets/logo.svg";
+>>>>>>> 117b244b595731eabc1f73fd2f04b658ae5a132c
 
 export function LoginPage() {
   const [email, setEmail] = useState("");
@@ -64,9 +68,15 @@ export function LoginPage() {
             <img
               src={logoSrc} //
               alt="Logo TIRETRACK"
+<<<<<<< HEAD
               className="h-60"
             />
             <h1 className="text-xl ">Bem-vindo de volta</h1>
+=======
+              className="h-10 w-auto mb-8"
+            />
+            <h1 className="text-xl font-extrabold">Bem-vindo de volta</h1>
+>>>>>>> 117b244b595731eabc1f73fd2f04b658ae5a132c
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="grid gap-4">
@@ -108,7 +118,11 @@ export function LoginPage() {
               {/* Botão de Login */}
               <Button
                 type="submit"
+<<<<<<< HEAD
                 className="w-full mt-4  bg-[#003b5c] hover:bg-[orange]"
+=======
+                className="w-full mt-4 bg-[#007AFF]"
+>>>>>>> 117b244b595731eabc1f73fd2f04b658ae5a132c
                 disabled={isLoading}
               >
                 {isLoading ? "Entrando..." : <>Entrar</>}

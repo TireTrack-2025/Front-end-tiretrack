@@ -72,7 +72,7 @@ export function ClientAdminDashboard() {
       <header className="mb-8 mt-8 text-white">
         <h1 className="text-2xl font-bold flex items-center gap-3">
             <LayoutDashboard className="size-8" /> 
-            Inventário Geral
+            Dashboard Gerencial
         </h1>
       </header>
       {/* 1. SEÇÃO DE ALERTAS E AÇÕES IMEDIATAS */}

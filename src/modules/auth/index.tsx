@@ -21,7 +21,7 @@ export function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-l from-[#DBE6FF] to-[#F0F5FF] p-4">
       <Card className="w-full max-w-md border-0 rounded-[5px]">
         <CardHeader className="text-center pt-[60px]">
-          <img src={logoSrc} alt="Logo da Plataforma" className="mx-auto mb-4 h-12 w-48" />
+          <img src={logoSrc} alt="Logo da Plataforma" className="mx-auto mb-4 h-2 w-20" />
           <CardTitle className="text-2xl font-bold">Acesse sua conta</CardTitle>
         </CardHeader>
         

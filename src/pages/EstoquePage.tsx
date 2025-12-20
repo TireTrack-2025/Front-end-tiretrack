@@ -3,8 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { getEstoqueResumo, type EstoqueResumo } from '../services/estoqueService';
 import { Link } from 'react-router-dom';
-import { Truck, Warehouse, CheckCircle, Car, Wrench, Cog, Archive} from 'lucide-react';
-
+import { Truck, Warehouse, CheckCircle, Car, Wrench, Cog, Archive, Ruler } from 'lucide-react';
 
 interface StatCardProps {
   title: string;
@@ -30,7 +29,6 @@ export function EstoquePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // ... (função fetchResumo e useEffect permanecem iguais) ...
   const fetchResumo = async () => {
     try {
       setLoading(true);
@@ -58,7 +56,7 @@ export function EstoquePage() {
         </h1>
       </header>
       
-      {loading && <p className="text-lg text-blue-500">Carregando dados...</p>}
+      {loading && <p className="text-lg text-blue-500 animate-pulse">Carregando indicadores...</p>}
       {error && <p className="text-lg text-red-500">Erro: {error}</p>}
 
       {!loading && resumo && (
@@ -66,7 +64,6 @@ export function EstoquePage() {
             <section className="mb-10">
                 <h2 className="text-2xl font-semibold mb-4 text-gray-700">Frota e Veículos</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
                     <StatCard 
                         title="Total de Veículos"
                         value={resumo.totalVeiculos}
@@ -82,20 +79,17 @@ export function EstoquePage() {
                         description="Veículos aptos a rodar."
                         color="border-l-green-500"
                     />
-
-                    {/* Adicionar mais cards de veículos aqui (ex: Veículos em Manutenção) */}
                 </div>
             </section>
 
             <section className="mb-10">
                 <h2 className="text-2xl font-semibold mb-4 text-gray-700">Estoque e Status dos Pneus</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
                     <StatCard 
                         title="Total de Pneus"
                         value={resumo.totalPneus}
                         icon={<Cog className="size-6 text-gray-500" />}
-                        description="Total de pneus gerenciados pelo sistema."
+                        description="Total de pneus gerenciados."
                         color="border-l-gray-500"
                     />
 
@@ -103,7 +97,7 @@ export function EstoquePage() {
                         title="Em Uso"
                         value={resumo.pneusEmUso}
                         icon={<Truck className="size-6 text-blue-500" />}
-                        description="Pneus atualmente montados nos veículos."
+                        description="Montados nos veículos."
                         color="border-l-blue-500"
                     />
                     
@@ -111,7 +105,7 @@ export function EstoquePage() {
                         title="Em Estoque"
                         value={resumo.pneusEmEstoque}
                         icon={<Warehouse className="size-6 text-teal-500" />}
-                        description="Pneus disponíveis para montagem."
+                        description="Disponíveis no almoxarifado."
                         color="border-l-teal-500"
                     />
                     
@@ -119,10 +113,9 @@ export function EstoquePage() {
                         title="Em Manutenção"
                         value={resumo.pneusEmManutencao + resumo.pneusDescartados}
                         icon={<Wrench className="size-6 text-red-500" />}
-                        description="Pneus em conserto ou descartados."
+                        description="Em conserto ou descarte."
                         color="border-l-red-500"
                     />
-                    
                 </div>
             </section>
         </>
@@ -130,7 +123,6 @@ export function EstoquePage() {
       
       <hr className="my-8" />
       
-      {/* Links Rápidos de Gestão */}
       <footer className="mt-8">
         <h2 className="text-xl font-semibold mb-3">Links Rápidos</h2>
         <div className="flex flex-wrap gap-4">
@@ -139,6 +131,10 @@ export function EstoquePage() {
             </Link>
             <Link to="/pneus" className="flex items-center gap-2 p-3 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200 transition">
                 <Wrench className="size-5" /> Gerenciar Pneus
+            </Link>
+            
+            <Link to="/paralelismo" className="flex items-center gap-2 p-3 bg-indigo-100 rounded-lg text-indigo-800 hover:bg-indigo-200 transition border border-indigo-200">
+                <Ruler className="size-5" /> Simulação de Desgaste
             </Link>
         </div>
       </footer>

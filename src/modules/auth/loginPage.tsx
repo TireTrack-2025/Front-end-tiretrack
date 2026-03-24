@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import logoSrc from "@/assets/TTLogo.png";
+import logoSrc from "@/assets/logo.svg";
 
 export function LoginPage() {
   const [email, setEmail] = useState("");
@@ -62,7 +62,7 @@ export function LoginPage() {
             <img
               src={logoSrc} //
               alt="Logo TIRETRACK"
-              className="h-20"
+              className="h-20 w-60"
             />
             <h1 className="text-xl font-bold">Bem-vindo de volta</h1>
           </CardHeader>
@@ -75,7 +75,7 @@ export function LoginPage() {
                   id="email"
                   className="border-[#EDEDED] shadow-none bg-[#F7F7F7]"
                   type="email"
-                  placeholder="Ex: proprietaria@track.com"
+                  placeholder="Digite seu email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -89,7 +89,7 @@ export function LoginPage() {
                   id="senha"
                   className="border-[#EDEDED] shadow-none bg-[#F7F7F7]"
                   type="password"
-                  placeholder="123"
+                  placeholder="Digite sua senha"
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
                   required
@@ -106,7 +106,7 @@ export function LoginPage() {
               {/* Botão de Login */}
               <Button
                 type="submit"
-                className="w-full mt-4  bg-[#003b5c] hover:bg-[orange]"
+                className="w-full mt-4  bg-[#2596be] hover:bg-[orange]"
                 disabled={isLoading}
               >
                 {isLoading ? "Entrando..." : <>Entrar</>}

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import logoSrc from '@/assets/images/logo.svg';
+import logoSrc from '@/assets/logo.svg';
 
 export function LoginPage() {
   const [email, setEmail] = useState('');
